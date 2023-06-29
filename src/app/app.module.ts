@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TermsDialogComponent } from './components/terms-dialog/terms-dialog.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCheckboxModule,
     MatIconModule,
     MatDialogModule,
+    HttpClientModule, 
     MatProgressSpinnerModule
     
   ],
