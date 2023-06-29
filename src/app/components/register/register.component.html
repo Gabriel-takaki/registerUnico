@@ -114,49 +114,71 @@
 
     <div class="forms">
     
-    <form class="form"  (ngSubmit)="onSubmit()" action="">
+    <form class="form" [formGroup]="registerForms"  (ngSubmit)="registerForms.valid ? onSubmit() : ''" action="">
 
     <span class="span" >Criar uma conta</span>
 
     <mat-form-field appearance="outline" style="margin-top: 20px;">
         <mat-label>Nome</mat-label>
-        <input type="text" matInput placeholder="João Pedro Silva" >
+        <input formControlName="name" type="text" matInput placeholder="João Pedro Silva" required="true" >
+        <mat-error *ngIf="!registerForms.controls['name'].valid" >
+        Digite um nome válido.
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" >
         <mat-label>Email</mat-label>
-        <input type="text" matInput placeholder="joao@gmail.com" >
+        <input formControlName="email" type="text" matInput placeholder="joao@gmail.com" >
+        <mat-error *ngIf="!registerForms.controls['email'].valid" >
+          Digite um email válido.
+          </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" >
         <mat-label>CPF</mat-label>
-        <input type="text" matInput placeholder="123.123.123-00" >
+        <input formControlName="doc" type="text" matInput placeholder="123.123.123-00" >
+        <mat-error *ngIf="!registerForms.controls['doc'].valid" >
+          Digite um email válido.
+          </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" >
         <mat-label>Senha</mat-label>
-        <input [type]="hidePassword ? 'password' : 'text' " matInput  >
-        <button (click)="hide('pass')" mat-icon-button matSuffix>
+        <input formControlName="password" [type]="hidePassword ? 'password' : 'text' " matInput  >
+        <!-- <button  tabindex="-1" (click)="hide('pass')" mat-icon-button matSuffix>
             <mat-icon> {{hidePassword ? 'visibility_off' : 'visibility'}} </mat-icon>
-        </button>
+        </button> -->
+        <mat-error *ngIf="!registerForms.controls['password'].valid" >
+          Sua senha deve conter número, letra minúscula e maiúscula e ao menos 6 dígitos  .
+          </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" >
         <mat-label>Confirmar senha</mat-label>
-        <input [type]="hideConfirmPassword ? 'password' : 'text' " matInput  >
-        <button (click)="hide('confirm')" mat-icon-button matSuffix>
+        <input formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text' " matInput  >
+        <!-- <button tabindex="-1" (click)="hide('confirm')" mat-icon-button matSuffix>
             <mat-icon> {{hideConfirmPassword ? 'visibility_off' : 'visibility'}} </mat-icon>
-        </button>
+        </button> -->
+        <mat-error *ngIf="!registerForms.controls['confirmPassword'].valid" >
+          Sua confirmação de senha deve ser igual a senha.
+        </mat-error>
     </mat-form-field>
 
-   <mat-checkbox color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os <a href="" style="color: #0059ff; text-decoration: none;">Termos de uso</a> </mat-checkbox>
+  <div style="display: flex; align-items: center;">
+    <mat-checkbox formControlName="confirmTerms" color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os </mat-checkbox>
+    <span href="" (click)="openTerms()" style="color: #0059ff; text-decoration: none; margin-left: 8px; cursor: pointer;">termos de uso</span> 
+  </div>
  
 
 
 
-    <button  [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;" [disabled]="!registerForms.valid" >CRIAR CONTA</button>
+    <button type="submit" [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;" [disabled]="!registerForms.valid" >CRIAR CONTA </button>
+
+    <mat-spinner class="searchSpinner" *ngIf="isSending" [diameter]="25" style="float: right; margin-top: 16px;"></mat-spinner>
+
 
     </form>
+
         
 
     </div>
