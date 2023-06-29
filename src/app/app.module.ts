@@ -18,7 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TermsDialogComponent } from './components/terms-dialog/terms-dialog.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatDialogModule,
     HttpClientModule, 
-    MatProgressSpinnerModule
-    
+    MatProgressSpinnerModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

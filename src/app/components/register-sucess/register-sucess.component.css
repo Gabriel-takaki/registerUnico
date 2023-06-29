@@ -1,0 +1,39 @@
+.sucess{
+    height: 100%;
+    width: 100%;
+    background-color: #161616;
+    background-image: url("/../assets/imgs/BG-Login.svg");
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.confirmDiv{
+    height: 50vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #fff;
+    color: #161616;
+    border-radius: 16px;
+    padding: 30px;
+    line-height: 1.3;
+}
+
+.button{
+    margin-top: 20px;
+    padding: 8px 30px;
+    background-color: #0059ff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

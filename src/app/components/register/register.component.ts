@@ -5,10 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { TermsDialogComponent } from '../terms-dialog/terms-dialog.component';
 import { RegisterServiceService } from 'src/app/services/register-service.service';
-import {Notify} from 'notiflix/build/notiflix-notify-aio';
-import {Loading} from 'notiflix/build/notiflix-loading-aio';
-import {Block} from 'notiflix/build/notiflix-block-aio';
-import {Report} from 'notiflix/build/notiflix-report-aio';
+
 
 @Component({
   selector: 'app-register',
@@ -23,50 +20,13 @@ export class RegisterComponent implements OnInit {
   hideConfirmPassword : boolean = true
   isSending: boolean = false
 
-  constructor(public fb: FormBuilder, private route: ActivatedRoute, public dialog: MatDialog, public registerService: RegisterServiceService) { 
-    Notify.init({
-      position: 'right-bottom',
-      timeout: 5000,
-      cssAnimationStyle: "from-bottom",
-      distance: '30px',
-      // Fundo claro fonte escura
-      /*success: {
-        background: '#edf7ee',
-        textColor: '#388e3c'
-      },
-      failure: {
-        background: '#fdeceb',
-        textColor: '#d32f2f'
-      },
-      warning: {
-        background: '#fff5e6',
-        textColor: '#f57c00'
-      },
-      info: {
-        background: '#bfe2ff',
-        textColor: '#0028a6'
-      },*/
-      // Fundo escuro fonte clara
-      success: {
-        background: '#388e3c',
-        textColor: '#edf7ee'
-      },
-      failure: {
-        background: '#d32f2f',
-        textColor: '#fdeceb'
-      },
-      warning: {
-        background: '#f57c00',
-        textColor: '#fff5e6'
-      },
-      info: {
-        background: '#0092ff',
-        textColor: '#bfe2ff'
-      },
-    });
+  constructor(public fb: FormBuilder, private route: ActivatedRoute, public dialog: MatDialog, public registerService: RegisterServiceService, private router: Router) { 
+  
   }
 
   ngOnInit(): void {
+    // this.router.navigate(['/register-sucess'])
+
     // pega o plano selecionado
     this.route.paramMap.subscribe(params => {
       let plan = params.get('plan');
@@ -80,6 +40,9 @@ export class RegisterComponent implements OnInit {
         case 'individual-anual':
           this.plamSelected = 'kickoff-BRL-Yearly'
         break;
+
+        default:
+          this.plamSelected = 'kickoff-BRL-Monthly'
      
       }
 
@@ -116,33 +79,39 @@ registerForms: FormGroup = this.fb.group({
       doc: this.registerForms.value.doc,
       email: this.registerForms.value.email,
       password: this.registerForms.value.password,
+      chargebeePlan: this.plamSelected
     }
 
-    this.registerService.registerUser(data).then((res) => {
 
+    this.registerService.registerUser(data).then((res) => {
+        this.isSending = false
+        this.registerService.showNotification('success', 'Cadastro realizado com sucesso!')
+        this.router.navigate(['/register-sucess'])
+    }).catch((error) => {
+      this.registerService.showNotification('err', error.error.message)
+      this.isSending = false
     })
+        
+  
+
   }
 
   openTerms(){
     this.dialog.open(TermsDialogComponent)
-    
   }
 
 
-  showNotification(type: string, message: string) {
-    if ( ["SUCCESS", "SUCESS", "SUCES", "SUCESSO", "OK", "SUC", "SUCCES"].includes(type.toUpperCase()) ) {
-      Notify.success(message);
-    }
-    if ( ["INFO", "I"].includes(type.toUpperCase()) ) {
-      Notify.info(message);
-    }
-    if ( ["ERROR", "ERRO", "ERR", "NOK", "FAIL", "FAILURE", "PROBLEM"].includes(type.toUpperCase()) ) {
-      Notify.failure(message);
-    }
-    if ( ["WARNING", "WARN", "ALERT"].includes(type.toUpperCase()) ) {
-      Notify.warning(message);
-    }
+  initDownload(){
+    // faz o download desse link 
+   let link ='https://objectstorage.sa-saopaulo-1.oraclecloud.com/p/1LrFIO57mi66bln8D5xjJVqeIWeZbRU5TXvAitSGX6G3itfrc_nwYgiddtcb139M/n/grjuh2wxmobn/b/bucket-j2f/o/unico/unico.exe'
+   this.registerService.showNotification('sucess', 'Download iniciado com sucesso')
+   setTimeout(() => {
+     window.open(link)
+    }, 1000)
   }
+
+
+  
 
 
 }
