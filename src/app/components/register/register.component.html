@@ -1,0 +1,164 @@
+<!-- 
+<div class="h100 full-width flexBetween">
+
+    <div class="sideDiv flex h100">
+  
+      <div class="centerDiv flex">
+        <span>Bem-vindo(a) <br> à advocacia <br> descomplicada.</span>
+        <img src="assets/imgs/logo.png" alt="" class="logoimg">
+      </div>
+  
+    </div>
+  
+    <div class="flex h100 formDiv">
+  
+      <div class="form">
+        <form class="registerForm" (change)="buttonIsAble()" (ngSubmit)="onLogin()" name="loginForm"
+        [formGroup]="loginForm">
+        <h1 class="h1Forms">Criar uma conta.</h1>
+
+        <div class="inputsRegister">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Digite seu Nome</mat-label>
+            <input formControlName="fullName" matInput placeholder="Digite seu nome" required />
+            <mat-error *ngIf="!loginForm.controls['doc'].valid">
+              Digite um nome válido.
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Digite seu CPF</mat-label>
+            <input class="inputRegister" mask="000.000.000-00" formControlName="doc" matInput placeholder="Digite seu CPF"
+              required />
+            <mat-error *ngIf="!loginForm.controls['doc'].valid">
+              Digite um CPF válido.
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Digite seu Email</mat-label>
+            <input formControlName="email" matInput placeholder="Digite seu Email" required />
+            <mat-error *ngIf="!loginForm.controls['doc'].valid">
+              Digite um Email válido.
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Digite sua Senha</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide" tabindex="-1">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!loginForm.controls['password'].valid">
+              A senha deve conter Maiúsculas, Minúsculas e número.
+            </mat-error>
+            <br>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Confirme sua Senha</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide" tabindex="-1">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!loginForm.controls['password'].valid">
+              A senha deve conter Maiúsculas, Minúsculas e número.
+            </mat-error>
+            <br>
+          </mat-form-field>
+  
+  
+          <div class="checkbox">
+            <input (click)="agreeTerm()" class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+            <label class="form-check-label" for="form2Example3c">
+              Li e aceito os <a href="#!">Termos de Serviço e Privacidade.</a>
+            </label>
+          </div>
+          <br />
+  
+          <button
+          type="submit"
+          class="botaoRegister"
+          [disabled]="ableButton"
+          (click)="sendToServer()"
+          mat-raised-button
+            color="primary">Criar Conta</button>
+  
+          <br />
+          <br>
+          <span class="goLog">Já tem uma conta ? <a routerLink="/auth">Faça login</a></span>
+        </div>
+      </form>
+      </div>
+  
+    </div>
+  
+  
+  </div>
+   -->
+
+   <div class="register">
+
+    <div class="art">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-left: 15%;">
+            <span style="text-align: initial; color: #fff; font-size: 2rem; line-height: 1.1; margin-bottom: 20px;" >Bem-vindo(a) <br> à advocacia <br> descomplicada.</span>
+            <img style="margin-right: 16px;" src="assets/imgs/logo.png" alt="" class="logoimg">
+          </div>
+    </div>
+
+    <div class="forms">
+    
+    <form class="form"  (ngSubmit)="onSubmit()" action="">
+
+    <span class="span" >Criar uma conta</span>
+
+    <mat-form-field appearance="outline" style="margin-top: 20px;">
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput placeholder="João Pedro Silva" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+        <mat-label>Email</mat-label>
+        <input type="text" matInput placeholder="joao@gmail.com" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+        <mat-label>CPF</mat-label>
+        <input type="text" matInput placeholder="123.123.123-00" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+        <mat-label>Senha</mat-label>
+        <input [type]="hidePassword ? 'password' : 'text' " matInput  >
+        <button (click)="hide('pass')" mat-icon-button matSuffix>
+            <mat-icon> {{hidePassword ? 'visibility_off' : 'visibility'}} </mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >
+        <mat-label>Confirmar senha</mat-label>
+        <input [type]="hideConfirmPassword ? 'password' : 'text' " matInput  >
+        <button (click)="hide('confirm')" mat-icon-button matSuffix>
+            <mat-icon> {{hideConfirmPassword ? 'visibility_off' : 'visibility'}} </mat-icon>
+        </button>
+    </mat-form-field>
+
+   <mat-checkbox color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os <a href="" style="color: #0059ff; text-decoration: none;">Termos de uso</a> </mat-checkbox>
+ 
+
+
+
+    <button  [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;" [disabled]="!registerForms.valid" >CRIAR CONTA</button>
+
+    </form>
+        
+
+    </div>
+
+   </div>

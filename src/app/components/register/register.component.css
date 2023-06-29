@@ -1,0 +1,52 @@
+.register{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.art{
+    height: 100%;
+    width: 50%;
+    background-color: #161616;
+    background-image: url("/../assets/imgs/BG-Login.svg");
+    background-position: right 155px bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forms{
+    height: 100%;
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    height: 90%;
+    width: 60%;
+    display: flex;
+    align-items: initial;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+    padding: 16px;
+}
+
+
+.span{
+    font-size: 1.5rem;
+    color: #161616;
+    font-weight: 500;
+}
+
+mat-form-field{
+    font-size: 0.75rem;
+}
