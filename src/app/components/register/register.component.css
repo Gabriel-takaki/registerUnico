@@ -50,3 +50,30 @@
 mat-form-field{
     font-size: 0.75rem;
 }
+
+.mobile{
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.2;
+    background-color: #161616;
+    background-image: url("/../assets/imgs/BG-Login.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+/* verifica se o usuario esta em mobile e troca a aplicação */
+
+@media (max-width: 580px) {
+    .register{
+        display: none;
+    }
+}
