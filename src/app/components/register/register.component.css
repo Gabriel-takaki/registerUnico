@@ -53,7 +53,7 @@ mat-form-field{
 
 .mobile{
     height: 100%;
-    display: flex;
+    display: none;
     overflow: hidden;
     justify-content: center;
     align-items: center;
@@ -76,5 +76,8 @@ mat-form-field{
 @media (max-width: 580px) {
     .register{
         display: none;
+    }
+    .mobile{
+        display: flex;
     }
 }
