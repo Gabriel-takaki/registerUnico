@@ -168,7 +168,7 @@
 
 
 
-    <button (click)="initDownload()"  [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;"  >FAZER DOWNLOAD</button>
+    <button (click)="initDownload()"  [ngStyle]="{'background-color': !registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;"  >FAZER DOWNLOAD</button>
 
     <!-- <mat-spinner class="searchSpinner" *ngIf="isSending" [diameter]="25" style="float: right; margin-top: 16px;"></mat-spinner> -->
 
