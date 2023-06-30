@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
         case 'individual-mensal':
           this.plamSelected = 'kickoff-BRL-Monthly'
           break;
-          case 'inidivual-trimestral':
+          case 'individual-trimestral':
             this.plamSelected = 'kickoff-BRL-Every-3-months'
           break;
         case 'individual-anual':
