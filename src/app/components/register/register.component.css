@@ -68,6 +68,7 @@ mat-form-field{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
+    padding: 0px 16px;
 }
 
 /* verifica se o usuario esta em mobile e troca a aplicação */
