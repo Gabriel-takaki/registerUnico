@@ -116,8 +116,8 @@
     
     <form class="form" [formGroup]="registerForms"  >
 
-    <span class="span" >Fazer download do unico.</span>
-<!-- 
+    <span class="span" >Cadastre-se no único</span>
+
     <mat-form-field appearance="outline" style="margin-top: 20px;">
         <mat-label>Nome</mat-label>
         <input formControlName="name" type="text" matInput placeholder="João Pedro Silva" required="true" >
@@ -164,31 +164,20 @@
     <mat-checkbox formControlName="confirmTerms" color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os </mat-checkbox>
     <span href="" (click)="openTerms()" style="color: #0059ff; text-decoration: none; margin-left: 8px; cursor: pointer;">termos de uso</span> 
   </div>
-  -->
+ 
 
 
 
-    <button (click)="initDownload()"  [ngStyle]="{'background-color': !registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;"  >FAZER DOWNLOAD</button>
+    <button (click)="onSubmit()" [disabled]="!registerForms.valid"  [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;"  >CADASTRAR</button>
 
-    <!-- <mat-spinner class="searchSpinner" *ngIf="isSending" [diameter]="25" style="float: right; margin-top: 16px;"></mat-spinner> -->
+    <mat-spinner class="searchSpinner" *ngIf="isSending" [diameter]="25" style="float: right; margin-top: 16px;"></mat-spinner>
 
 
-    <!-- <span style="margin-top: 32px; color: #0059ff; cursor: pointer;"  >Já tem uma conta? fazer download</span> -->
+    <span (click)="initDownload()" style="margin-top: 32px; color: #0059ff; cursor: pointer;"  >Já tem uma conta? fazer download</span>
     </form>
 
-
-    
-    
 
     </div>
 
    </div>
 
-
-   <div class="mobile">
-    <span>Olá !</span>
-    <span>Detectamos que você está usando um dispositivo</span>
-    <span>Mobile</span>
-    <span>Para baixar o unico, acesse esse mesmo link por um computador ou notebook !</span>
-    <span>Obrigado pela compreensão</span>
-   </div>

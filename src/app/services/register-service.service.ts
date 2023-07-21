@@ -54,7 +54,7 @@ export class RegisterServiceService {
     });
   }
 
-  private _urlBase : string = "http://srvapp.unicoadv.com.br:3000"; // Servidor OCI
+  private _urlBase : string = "https://srvapp.unicoadv.com.br:3000"; // Servidor OCI
   
   httpOptions = {
     headers: new HttpHeaders({
@@ -66,7 +66,7 @@ export class RegisterServiceService {
 
   registerUser(user: any) {
     console.log(user);
-    
+    console.log(this._urlBase)
     return new Promise((resolve: any, reject: any) => {
 
       let request = this.http.post(`${this._urlBase}/auth/signup/`, user, this.httpOptions)
