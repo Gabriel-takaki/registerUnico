@@ -30,22 +30,7 @@ export class RegisterComponent implements OnInit {
     // pega o plano selecionado
     this.route.paramMap.subscribe(params => {
       let plan = params.get('plan');
-      switch (plan){
-        case 'individual-mensal':
-          this.plamSelected = 'kickoff-BRL-Monthly'
-          break;
-          case 'individual-trimestral':
-            this.plamSelected = 'kickoff-BRL-Every-3-months'
-          break;
-        case 'individual-anual':
-          this.plamSelected = 'kickoff-BRL-Yearly'
-        break;
-
-        default:
-          this.plamSelected = 'kickoff-BRL-Monthly'
-     
-      }
-
+      this.plamSelected = plan
     });
 
     // cria o formulário

@@ -1,107 +1,4 @@
-<!-- 
-<div class="h100 full-width flexBetween">
 
-    <div class="sideDiv flex h100">
-  
-      <div class="centerDiv flex">
-        <span>Bem-vindo(a) <br> à advocacia <br> descomplicada.</span>
-        <img src="assets/imgs/logo.png" alt="" class="logoimg">
-      </div>
-  
-    </div>
-  
-    <div class="flex h100 formDiv">
-  
-      <div class="form">
-        <form class="registerForm" (change)="buttonIsAble()" (ngSubmit)="onLogin()" name="loginForm"
-        [formGroup]="loginForm">
-        <h1 class="h1Forms">Criar uma conta.</h1>
-
-        <div class="inputsRegister">
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Digite seu Nome</mat-label>
-            <input formControlName="fullName" matInput placeholder="Digite seu nome" required />
-            <mat-error *ngIf="!loginForm.controls['doc'].valid">
-              Digite um nome válido.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Digite seu CPF</mat-label>
-            <input class="inputRegister" mask="000.000.000-00" formControlName="doc" matInput placeholder="Digite seu CPF"
-              required />
-            <mat-error *ngIf="!loginForm.controls['doc'].valid">
-              Digite um CPF válido.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Digite seu Email</mat-label>
-            <input formControlName="email" matInput placeholder="Digite seu Email" required />
-            <mat-error *ngIf="!loginForm.controls['doc'].valid">
-              Digite um Email válido.
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Digite sua Senha</mat-label>
-            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
-            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
-              [attr.aria-pressed]="hide" tabindex="-1">
-              <mat-icon>
-                {{hide ? 'visibility_off' : 'visibility'}}
-              </mat-icon>
-            </button>
-            <mat-error *ngIf="!loginForm.controls['password'].valid">
-              A senha deve conter Maiúsculas, Minúsculas e número.
-            </mat-error>
-            <br>
-          </mat-form-field>
-  
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Confirme sua Senha</mat-label>
-            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
-            <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
-              [attr.aria-pressed]="hide" tabindex="-1">
-              <mat-icon>
-                {{hide ? 'visibility_off' : 'visibility'}}
-              </mat-icon>
-            </button>
-            <mat-error *ngIf="!loginForm.controls['password'].valid">
-              A senha deve conter Maiúsculas, Minúsculas e número.
-            </mat-error>
-            <br>
-          </mat-form-field>
-  
-  
-          <div class="checkbox">
-            <input (click)="agreeTerm()" class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-            <label class="form-check-label" for="form2Example3c">
-              Li e aceito os <a href="#!">Termos de Serviço e Privacidade.</a>
-            </label>
-          </div>
-          <br />
-  
-          <button
-          type="submit"
-          class="botaoRegister"
-          [disabled]="ableButton"
-          (click)="sendToServer()"
-          mat-raised-button
-            color="primary">Criar Conta</button>
-  
-          <br />
-          <br>
-          <span class="goLog">Já tem uma conta ? <a routerLink="/auth">Faça login</a></span>
-        </div>
-      </form>
-      </div>
-  
-    </div>
-  
-  
-  </div>
-   -->
 
    <div class="register" >
 
@@ -161,7 +58,7 @@
     </mat-form-field>
 
   <div style="display: flex; align-items: center;">
-    <mat-checkbox formControlName="confirmTerms" color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os </mat-checkbox>
+    <mat-checkbox formControlName="confirmTeMonthlyrms" color="primary" class="example-margin" style="margin-top: 0px;" >Li e concordo com os </mat-checkbox>
     <span href="" (click)="openTerms()" style="color: #0059ff; text-decoration: none; margin-left: 8px; cursor: pointer;">termos de uso</span> 
   </div>
  
