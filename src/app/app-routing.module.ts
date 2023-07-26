@@ -6,7 +6,7 @@ import { RegisterSucessComponent } from './components/register-sucess/register-s
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'register/kickoff-BRL-Monthly',
+    redirectTo: 'register/individual-mensal',
     pathMatch: 'full'
   },
   {
