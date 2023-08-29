@@ -50,14 +50,12 @@
 .mobile{
     height: 100%;
     width: 100%;
-    background-color: #161616;
-    background-image: url("/../assets/imgs/BG-Login.svg");
     background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #fff;
+    color: #161616;
     font-size: 1rem;
     line-height: 1;
 }

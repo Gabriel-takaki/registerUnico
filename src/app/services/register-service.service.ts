@@ -54,7 +54,7 @@ export class RegisterServiceService {
     });
   }
 
-  private _urlBase : string = "https://srvapp.unicoadv.com:3000"; // Servidor OCI
+  private _urlBase : string = "https://srvapp.unicoadv.com:2053"; // Servidor OCI
   
   httpOptions = {
     headers: new HttpHeaders({
