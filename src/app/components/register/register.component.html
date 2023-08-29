@@ -181,3 +181,66 @@
 
    </div>
 
+
+   <div class="mobile">
+    <form class="form flex" [formGroup]="registerForms"  style="width: 80%; height: 100%; overflow: auto; " >
+    
+      <span class="span flex" >Cadastre-se no  <br> <img style="margin-top: 10px; width: 100px;" src="assets/imgs/logo.png" alt="" > </span>
+  
+      <mat-form-field appearance="outline" style="margin-top: 20px;">
+          <mat-label>Nome</mat-label>
+          <input formControlName="name" type="text" matInput style="color: #161616;" placeholder="João Pedro Silva" required="true" >
+          <mat-error *ngIf="!registerForms.controls['name'].valid" >
+          Digite um nome válido.
+          </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" >
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="text" matInput style="color: #161616;" placeholder="joao@gmail.com" >
+          <mat-error *ngIf="!registerForms.controls['email'].valid" >
+            Digite um email válido.
+            </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" >
+          <mat-label>CPF</mat-label>
+          <input mask="000.000.000-00" formControlName="doc" type="text" matInput style="color: #161616;" placeholder="123.123.123-00" >
+          <mat-error *ngIf="!registerForms.controls['doc'].valid" >
+            Digite um email válido.
+            </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" >
+          <mat-label>Senha</mat-label>
+          <input formControlName="password" [type]="hidePassword ? 'password' : 'text' " matInput style="color: #161616;"  >
+     
+          <mat-error *ngIf="!registerForms.controls['password'].valid" >
+            Sua senha deve conter número, letra minúscula e maiúscula e ao menos 6 dígitos  .
+            </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" >
+          <mat-label>Confirmar senha</mat-label>
+          <input formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text' " matInput style="color: #161616;"  >
+       
+          <mat-error *ngIf="!registerForms.controls['confirmPassword'].valid" >
+            Sua confirmação de senha deve ser igual a senha.
+          </mat-error>
+      </mat-form-field>
+  
+    <div style="display: flex; align-items: center; margin: 16px 0;">
+      <mat-checkbox formControlName="confirmTerms" color="primary" class="example-margin" style="margin-top: 0px;" > <span style="color: #161616;" >Li e concordo com os  </span></mat-checkbox>
+      <span href="" (click)="openTerms()" style="color: #0059ff; text-decoration: none; margin-left: 8px; cursor: pointer;">termos de uso</span> 
+    </div>
+   
+  
+  
+  
+      <button (click)="onSubmit()" [disabled]="!registerForms.valid"  [ngStyle]="{'background-color': registerForms.valid ? '#0059ff': '#929292dd'}" mat-raised-button style="color: #fff; padding: 4px; font-size: 0.8rem; margin-top: 15px;"  >CADASTRAR</button>
+  
+      <mat-spinner class="searchSpinner" *ngIf="isSending" [diameter]="25" style="float: right; margin-top: 16px;"></mat-spinner>
+  
+  
+      </form>
+   </div>
